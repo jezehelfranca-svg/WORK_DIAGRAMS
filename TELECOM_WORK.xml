@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisioDocument xmlns="http://schemas.microsoft.com/office/visio/2003/core">
+  <Pages>
+    <Page ID="1" Name="Telecom Estimate-Design Checklist">
+
+      <!-- ========================= -->
+      <!-- Container: ITB & Basis -->
+      <!-- ========================= -->
+      <Shape ID="100" Name="Container_ITB" Type="Group">
+        <Text>ITB & Design Basis Review</Text>
+      </Shape>
+
+      <Shape ID="101">
+        <Text>Check telecom design basis and philosophy</Text>
+      </Shape>
+      <Shape ID="102">
+        <Text>Review specifications and block diagrams</Text>
+      </Shape>
+      <Shape ID="103">
+        <Text>Confirm indoor and outdoor IP ratings</Text>
+      </Shape>
+      <Shape ID="104">
+        <Text>Confirm hazardous area and explosion-proof requirements</Text>
+      </Shape>
+      <Shape ID="105">
+        <Text>Confirm applicable codes, standards, and local regulations</Text>
+      </Shape>
+      <Shape ID="106">
+        <Text>Confirm security regulations (e.g. Saudi HCIS)</Text>
+      </Shape>
+
+      <!-- ========================= -->
+      <!-- Container: Scope & Interfaces -->
+      <!-- ========================= -->
+      <Shape ID="200" Name="Container_Scope" Type="Group">
+        <Text>Scope, Interfaces, and Existing Systems</Text>
+      </Shape>
+
+      <Shape ID="201">
+        <Text>Define supply and work scope boundaries</Text>
+      </Shape>
+      <Shape ID="202">
+        <Text>Identify expansion and modification interfaces</Text>
+      </Shape>
+      <Shape ID="203">
+        <Text>Identify tie-in points and physical connections</Text>
+      </Shape>
+      <Shape ID="204">
+        <Text>Check intra-system and inter-system interfaces</Text>
+      </Shape>
+      <Shape ID="205">
+        <Text>Verify existing system capacity and I/O ports</Text>
+      </Shape>
+      <Shape ID="206">
+        <Text>Confirm site survey requirement</Text>
+      </Shape>
+
+      <!-- ========================= -->
+      <!-- Container: Redundancy -->
+      <!-- ========================= -->
+      <Shape ID="300" Name="Container_Redundancy" Type="Group">
+        <Text>Redundancy and Reliability Requirements</Text>
+      </Shape>
+
+      <Shape ID="301">
+        <Text>Verify hot standby and cold standby requirements</Text>
+      </Shape>
+      <Shape ID="302">
+        <Text>Verify failover, load balancing, 1+1, and N+1</Text>
+      </Shape>
+      <Shape ID="303">
+        <Text>Verify cable redundancy and route diversity</Text>
+      </Shape>
+      <Shape ID="304">
+        <Text>Verify SIL-level security requirements</Text>
+      </Shape>
+      <Shape ID="305">
+        <Text>Apply single-system design if no requirement exists</Text>
+      </Shape>
+
+      <!-- ========================= -->
+      <!-- Container: Default Standards -->
+      <!-- ========================= -->
+      <Shape ID="400" Name="Container_Defaults" Type="Group">
+        <Text>Default Subsystem Standards (If ITB Is Silent)</Text>
+      </Shape>
+
+      <Shape ID="401">
+        <Text>Telephone: SIP or H.323</Text>
+      </Shape>
+      <Shape ID="402">
+        <Text>CCTV: IP-based H.264 1080p</Text>
+      </Shape>
+      <Shape ID="403">
+        <Text>PAGA: 100V line and Class C amplifier</Text>
+      </Shape>
+      <Shape ID="404">
+        <Text>Radio: TETRA Release 2</Text>
+      </Shape>
+      <Shape ID="405">
+        <Text>ACS: ISO/IEC 18000-3 (13.56 MHz)</Text>
+      </Shape>
+      <Shape ID="406">
+        <Text>Firewall: NIST 800-41 / IDPS: NIST 800-94</Text>
+      </Shape>
+
+      <!-- ========================= -->
+      <!-- Container: System Design -->
+      <!-- ========================= -->
+      <Shape ID="500" Name="Container_Systems" Type="Group">
+        <Text>System-Specific Design Requirements</Text>
+      </Shape>
+
+      <Shape ID="501">
+        <Text>Telephone system design (Analog MDF/IDF or VoIP)</Text>
+      </Shape>
+      <Shape ID="502">
+        <Text>CCTV performance criteria (resolution, IPS, storage)</Text>
+      </Shape>
+      <Shape ID="503">
+        <Text>Outdoor CCTV requirements (sunshade, IP, Ex-proof)</Text>
+      </Shape>
+      <Shape ID="504">
+        <Text>PAGA coverage, zoning (A/B), and monitoring return</Text>
+      </Shape>
+      <Shape ID="505">
+        <Text>Radio coverage, antenna height, and repeaters</Text>
+      </Shape>
+      <Shape ID="506">
+        <Text>ACS door classification and reader application</Text>
+      </Shape>
+      <Shape ID="507">
+        <Text>Data network redundancy and three-level architecture</Text>
+      </Shape>
+      <Shape ID="508">
+        <Text>IDS topology (ring or segmented sub-rings)</Text>
+      </Shape>
+
+    </Page>
+  </Pages>
+</VisioDocument>
