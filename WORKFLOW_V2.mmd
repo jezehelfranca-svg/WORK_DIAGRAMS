@@ -1,0 +1,216 @@
+flowchart TB
+%%{init: {'flowchart': {'curve': 'linear'}}}%%
+%% ==================================================
+%% Main Header
+%% ==================================================
+TITLE["TELECOM WORKFLOW<br/>Estimate–Design (Bid Stage)"]
+%% ITB & Basis
+%% ==================================================
+TITLE --> A
+
+A["ITB and Design Basis Review<br/><br/>
+1. Telecom design basis and philosophy reviewed<br/>
+2. Telecom specifications and block diagrams reviewed<br/>
+3. Indoor and outdoor IP ratings confirmed<br/>
+4. Hazardous-area and explosion-proof requirements confirmed<br/>
+5. Applicable codes standards and local regulations confirmed<br/>
+6. Security regulations confirmed for example Saudi HCIS
+"]
+
+%% ==================================================
+%% Scope & Interfaces
+%% ==================================================
+A --> B
+
+B["Scope Interfaces and Existing Systems<br/><br/>
+1. Supply and work scope boundaries defined<br/>
+2. Expansion and modification interfaces identified<br/>
+3. Tie-in points and physical connections identified<br/>
+4. Intra-system and inter-system interfaces checked<br/>
+5. Existing system capacity and IO ports verified<br/>
+6. Site survey requirement confirmed
+"]
+
+%% ==================================================
+%% Redundancy
+%% ==================================================
+B --> C
+
+C["Redundancy and Reliability Requirements<br/><br/>
+1. Hot standby and cold standby requirements verified<br/>
+2. Failover load balancing one-plus-one and N-plus-one verified<br/>
+3. Cable redundancy and route diversity verified<br/>
+4. SIL-level security requirements verified<br/>
+5. Single-system design applied where no requirement exists
+"]
+
+%% ==================================================
+%% Default Standards
+%% ==================================================
+C --> D
+
+D["Default Subsystem Standards If ITB Is Silent<br/><br/>
+1. Telephone standard defined SIP or H.323<br/>
+2. CCTV standard defined IP-based H.264 1080p<br/>
+3. PAGA standard defined 100V line Class C amplifier<br/>
+4. Radio standard defined TETRA Release 2<br/>
+5. ACS standard defined ISO IEC 18000-3 13.56 MHz<br/>
+6. Firewall standard defined NIST 800-41<br/>
+7. IDPS standard defined NIST 800-94
+"]
+
+%% ==================================================
+%% Telephone System
+%% ==================================================
+TITLE --> T
+
+T["Telephone System Design Workflow<br/><br/>
+1. Analog or VoIP system selected<br/>
+2. MDF-IDF hierarchy applied for analog system<br/>
+3. MDF-IDF trunk sized with 25 percent spare<br/>
+4. VoIP patch panel ports sized with 25 percent spare<br/>
+5. Explosion-proof phones applied in hazardous areas<br/>
+6. Outdoor phones checked for IP rating or IP65 default
+"]
+
+%% ==================================================
+%% CCTV System
+%% ==================================================
+TITLE --> CCTV
+
+CCTV["CCTV System Design Workflow<br/><br/>
+1. Resolution IPS traffic and storage defined<br/>
+2. Default applied IP-based H.264 1080p if unspecified<br/>
+3. Outdoor cameras checked for IP rating or IP65 default<br/>
+4. Sunshade applied for high temperature areas<br/>
+5. Explosion-proof cameras applied in hazardous areas<br/>
+6. Indoor Cat 6 PoE and outdoor fiber plus power applied
+"]
+
+%% ==================================================
+%% PAGA System
+%% ==================================================
+TITLE --> P
+
+P["PAGA System Design Workflow<br/><br/>
+1. PA coverage requirement reviewed<br/>
+2. Full area coverage applied if unspecified<br/>
+3. A-B zoning applied where required<br/>
+4. Speaker type selected by noise level and area<br/>
+5. Monitoring return cabling included<br/>
+6. Speaker junction boxes treated as vendor scope
+"]
+
+%% ==================================================
+%% Radio System
+%% ==================================================
+TITLE --> R
+
+R["Radio System Design Workflow<br/><br/>
+1. Coverage and licensing responsibility confirmed<br/>
+2. Antenna height minimum 30 m applied for plant coverage<br/>
+3. GMDSS default coverage applied if required<br/>
+4. Antenna tower quantity and height reflected in MR<br/>
+5. Indoor repeater applied only if signal below minus 70 dBm<br/>
+6. Coaxial cable and antenna accessories treated as vendor scope
+"]
+
+%% ==================================================
+%% ACS System
+%% ==================================================
+TITLE --> ACS
+
+ACS["Access Control System Workflow<br/><br/>
+1. Door types classified main exit-only and general<br/>
+2. Readers applied only to main or security doors if unspecified<br/>
+3. Controller to reader uses Cat 6 cabling<br/>
+4. Lock button and sensor IO uses 0.65 sqmm cable<br/>
+5. Vendor scope clearly identified in MR and BOQ
+"]
+
+%% ==================================================
+%% Data Network & IDS
+%% ==================================================
+TITLE --> DN
+
+DN["Data Network and IDS Workflow<br/><br/>
+1. Dual 1 Gbps redundancy applied if capacity unspecified<br/>
+2. Core distribution and access layers defined<br/>
+3. External network connections protected by firewall and IDPS<br/>
+4. Single-mode fiber backbone per ITU-T G.652 applied<br/>
+5. Default 24-core fiber used if unspecified<br/>
+6. IDS field devices arranged in ring or sub-rings
+"]
+
+%% ==================================================
+%% Cable & MTO
+%% ==================================================
+DN --> F
+ACS --> F
+R --> F
+P --> F
+CCTV --> F
+T --> F
+F["Cable Rules and MTO Development<br/><br/>
+1. Cable MTO derived from block diagrams and layouts<br/>
+2. Telecom routes separated from electrical and instrument routes<br/>
+3. Default cable types applied per system<br/>
+4. Redundancy impact on cable quantities checked<br/>
+5. Routes grouped by area and nearest equipment room
+"]
+
+%% ==================================================
+%% Vendor Scope
+%% ==================================================
+A --> G
+DN --> G
+ACS --> G
+R --> G
+P --> G
+CCTV --> G
+T --> G
+G["Vendor Scope and Interfaces<br/><br/>
+1. Vendor-supplied cables and accessories identified<br/>
+2. Vendor scope included in MR and BOQ<br/>
+3. Vendor quantities verified during TBE<br/>
+4. Vendor items marked as By Vendor in BOQ
+"]
+
+%% ==================================================
+%% Interdiscipline
+%% ==================================================
+TITLE --> H
+
+H["Interdiscipline Engineering Deliverables<br/><br/>
+1. Cable tray loading and routing issued to Process and Civil<br/>
+2. Trench duct foundation and manhole data issued to Civil<br/>
+3. Telecom equipment heat dissipation issued to HVAC<br/>
+4. Telecom grounding targets issued to Electrical
+"]
+
+%% ==================================================
+%% BOQ Validation
+%% ==================================================
+TITLE --> I
+
+I["Vendor Packages and BOQ Validation<br/><br/>
+1. Vendor issue package prepared and issued<br/>
+2. Vendor return package received and reviewed<br/>
+3. BOQ validated against vendor quantities<br/>
+4. Quantities benchmarked against similar past projects<br/>
+5. Revamp and tie-in quantities separated<br/>
+6. Latest documents confirmed issued to vendors
+"]
+
+%% ==================================================
+%% Final Review
+%% ==================================================
+TITLE --> J
+
+J["Final Estimate-Design Review<br/><br/>
+1. Aboveground and underground cable routing verified<br/>
+2. Cable sizing derating factors confirmed<br/>
+3. All ITB addenda confirmed incorporated<br/>
+4. Estimate-design frozen for bid submission
+"]
+
