@@ -1,0 +1,77 @@
+
+flowchart LR
+    %% =================================================
+    %% COMMON GOVERNANCE POOL
+    %% =================================================
+    subgraph GOV["Common Governance (SOP‑PL‑EN‑CI‑009)"]
+        S((Start))
+        G1{Project Type?}
+        PM[PM Review & Approval]
+        E((End<br/>Approved C&I M/H))
+    end
+
+    S --> G1
+
+    %% =================================================
+    %% BID POOL
+    %% =================================================
+    subgraph BID["Bid Project"]
+        direction TB
+        B1["Define Bid Scope<br/>ITB-based"]
+        B2["Input Key Quantities<br/>ICSS I/O<br/>Instrument count"]
+        B3["Select Difficulty Level<br/>High / Medium / Low"]
+        B4["Calculate Bid M/H<br/>Quantity-driven"]
+        B5["Bid Validation<br/>50% participation<br/>1.5–2 months"]
+    end
+
+    %% =================================================
+    %% EXECUTION POOL
+    %% =================================================
+    subgraph EXEC["Execution Project"]
+        direction TB
+        E1["Define Detailed Scope<br/>Tailoring applied"]
+        E2["Collect Detailed Inputs<br/>Instruments, cables, JB<br/>SPI, tracing"]
+        E3["Select Standard M/H<br/>by activity & scale"]
+        E4["Apply Difficulty Factors<br/>Client / PMC / Region<br/>Early Work / Verification"]
+        E5["Add Special M/H<br/>SPI, BM, As‑Built, CMMS"]
+        E6["Execution Validation<br/>18 months staffing<br/>20–22 if high difficulty"]
+    end
+
+    %% =================================================
+    %% FEED POOL
+    %% =================================================
+    subgraph FEED["FEED Project"]
+        direction TB
+        F1["Define FEED Purpose<br/>FEED only or FEED + Bid"]
+        F2["Map FEED Deliverables<br/>per SOP‑PL‑EN‑CI‑015"]
+        F3[Select FEED M/H Tables]
+        F4["Apply Difficulty Logic<br/>Explicit or implicit"]
+        F5["Add FEED‑Specific M/H<br/>Verification & docs"]
+        F6["FEED Validation<br/>Purpose vs effort"]
+    end
+
+    %% =================================================
+    %% FLOW CONNECTIONS
+    %% =================================================
+    G1 -->|Bid| B1
+    G1 -->|Execution| E1
+    G1 -->|FEED| F1
+
+    B1 --> B2 --> B3 --> B4 --> B5 --> PM
+    E1 --> E2 --> E3 --> E4 --> E5 --> E6 --> PM
+    F1 --> F2 --> F3 --> F4 --> F5 --> F6 --> PM
+
+    PM --> E
+
+    %% =================================================
+    %% STYLING (Readable BPMN Colors)
+    %% =================================================
+    classDef bid fill:#E3F2FD,stroke:#1E88E5,color:#000;
+    classDef exec fill:#E8F5E9,stroke:#43A047,color:#000;
+    classDef feed fill:#FFF8E1,stroke:#FB8C00,color:#000;
+    classDef gov fill:#F5F5F5,stroke:#616161,color:#000;
+
+    class B1,B2,B3,B4,B5 bid;
+    class E1,E2,E3,E4,E5,E6 exec;
+    class F1,F2,F3,F4,F5,F6 feed;
+    class S,G1,PM,E gov;
