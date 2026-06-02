@@ -1,0 +1,49 @@
+flowchart LR
+    %% Common Start
+    A([Start<br/>Project Identified]) --> B{Project Type}
+
+    %% ================= BID =================
+    B -->|Bid| B1["Fast Scope Definition<br/>• ITB-based<br/>• Limited inputs"]
+
+    B1 --> B2["Primary Inputs<br/>• ICSS I/O count<br/>• Total instrument count"]
+
+    B2 --> B3["Select Difficulty Level<br/>High / Medium / Low<br/>(ITB completeness)"]
+
+    B3 --> B4["Apply Bid Rules<br/>• Quantity-driven M/H<br/>• Minimal tailoring"]
+
+    B4 --> B5["Bid Validation<br/>• 50% participation<br/>• 1.5–2 months<br/>(up to 3 if needed)"]
+
+    B5 --> Z[PM Review & Approval]
+
+    %% ================= EXECUTION =================
+    B -->|Execution| E1["Detailed Scope Definition<br/>• Full activities<br/>• Tailoring applied"]
+
+    E1 --> E2["Detailed Inputs<br/>• Instruments, cables, JB<br/>• SPI scope, tracing"]
+
+    E2 --> E3["Select Standard M/H<br/>by activity & scale"]
+
+    E3 --> E4["Apply Difficulty Factors<br/>• Client / PMC / Region<br/>• Early Work / Verification"]
+
+    E4 --> E5["Add Special M/H<br/>• SPI modules<br/>• BM / As-Built / CMMS"]
+
+    E5 --> E6["Execution Validation<br/>• 18 months staffing<br/>• 20–22 if high difficulty"]
+
+    E6 --> Z
+
+    %% ================= FEED =================
+    B -->|FEED| F1["Define FEED Purpose<br/>• FEED-only<br/>• or FEED + Bid support"]
+
+    F1 --> F2["FEED Deliverable Mapping<br/>per SOP-PL-EN-CI-015"]
+
+    F2 --> F3["Select FEED M/H Tables<br/>Reflect ITB variation"]
+
+    F3 --> F4["Apply Difficulty Logic<br/>Explicit or implicit"]
+
+    F4 --> F5["Add FEED-Specific M/H<br/>• Verification<br/>• Extra documentation"]
+
+    F5 --> F6["FEED Validation<br/>Check purpose vs effort"]
+
+    F6 --> Z
+
+    %% ================= END =================
+    Z([Final Approved<br/>C&I Design M/H])
