@@ -1,0 +1,77 @@
+
+flowchart LR
+    %% ===== EVENTS =====
+    S((Start))
+
+    G{Project Type?}
+
+    S --> G
+
+    %% ===== BID =====
+    B["Bid Man-Hour Estimation<br/><br/>
+    Formula:<br/>
+    M/H = Unit M/H<br/>
+    × ICSS I/O Count<br/>
+    (Difficulty: High / Medium / Low)<br/><br/>
+    Rules:<br/>
+    • 50% participation<br/>
+    • Validate 1.5–2 months<br/>
+    • BM take-off:<br/>
+      &lt;10k I/O = 500 M/H<br/>
+      ≥10k I/O = 600 M/H
+    "]
+
+    %% ===== EXECUTION =====
+    E["Execution Man-Hour Estimation<br/><br/>
+    Formula:<br/>
+    M/H = Σ(Standard M/H by activity)<br/>
+    × Client/PMC/Region Factor<br/>
+    × Early Work Factor (1.05)<br/>
+    × FEED Verification (1.02)<br/>
+    + Special Scope Add-ons<br/><br/>
+    Validation:<br/>
+    • 18 months staffing<br/>
+    • 20–22 if high difficulty
+    "]
+
+    %% ===== FEED =====
+    F["FEED Man-Hour Estimation<br/><br/>
+    Formula:<br/>
+    M/H = Σ(FEED Deliverable M/H)<br/>
+    × Difficulty Factor<br/>
+    + Verification / Extra Docs<br/><br/>
+    Notes:<br/>
+    • SOP‑PL‑EN‑CI‑015 mapping<br/>
+    • Purpose‑specific estimation
+    "]
+
+    %% ===== GOVERNANCE =====
+    PM["PM Review & Approval<br/><br/>
+    Control Rules:<br/>
+    • Site manpower excluded<br/>
+    • ±10% deviation → revise factor
+    "]
+
+    END((End<br/>Approved C&I Design M/H))
+
+    %% ===== FLOW =====
+    G -->|Bid| B
+    G -->|Execution| E
+    G -->|FEED| F
+
+    B --> PM
+    E --> PM
+    F --> PM
+
+    PM --> END
+
+    %% ===== STYLING =====
+    classDef bid fill:#E3F2FD,stroke:#1E88E5,color:#000;
+    classDef exec fill:#E8F5E9,stroke:#43A047,color:#000;
+    classDef feed fill:#FFF8E1,stroke:#FB8C00,color:#000;
+    classDef gov fill:#F5F5F5,stroke:#616161,color:#000;
+
+    class B bid;
+    class E exec;
+    class F feed;
+    class S,G,PM,END gov;
