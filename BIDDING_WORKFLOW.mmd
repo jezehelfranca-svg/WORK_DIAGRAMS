@@ -1,0 +1,187 @@
+
+
+%%{init: {
+  'flowchart': {
+    'curve': 'linear',
+    'direction': 'TB',
+    'nodeSpacing': 250,
+    'rankSpacing': 120,
+    'padding': 15
+  }
+}}%
+
+flowchart TB
+
+%% ===============================
+%% Swimlane: Bid / ITB Review
+%% ===============================
+subgraph L1["Bid / ITB Review"]
+direction TB
+A["ITB and Design Basis Review<br/><br/>
+1. Telecom design basis and philosophy reviewed<br/>
+2. Telecom specifications and block diagrams reviewed<br/>
+3. Indoor and outdoor IP ratings confirmed<br/>
+4. Hazardous-area and explosion-proof requirements confirmed<br/>
+5. Codes standards and local regulations confirmed<br/>
+6. Security regulations confirmed for example Saudi HCIS
+"]
+
+B["Scope Interfaces and Existing Systems<br/><br/>
+1. Supply and work scope boundaries defined<br/>
+2. Expansion and modification interfaces identified<br/>
+3. Tie-in points and physical connections identified<br/>
+4. Intra-system and inter-system interfaces checked<br/>
+5. Existing system capacity and IO ports verified<br/>
+6. Site survey requirement confirmed
+"]
+
+C["Redundancy and Reliability Requirements<br/><br/>
+1. Hot standby and cold standby requirements verified<br/>
+2. Failover load balancing one-plus-one and N-plus-one verified<br/>
+3. Cable redundancy and route diversity verified<br/>
+4. SIL-level security requirements verified<br/>
+5. Single-system design applied where no requirement exists
+"]
+
+D["Default Subsystem Standards If ITB Is Silent<br/><br/>
+1. Telephone standard defined SIP or H.323<br/>
+2. CCTV standard defined IP-based H.264 1080p<br/>
+3. PAGA standard defined 100V line Class C amplifier<br/>
+4. Radio standard defined TETRA Release 2<br/>
+5. ACS standard defined ISO IEC 18000-3 13.56 MHz<br/>
+6. Firewall standard defined NIST 800-41<br/>
+7. IDPS standard defined NIST 800-94
+"]
+
+A --> B --> C --> D
+end
+
+%% ===============================
+%% Swimlane: Telecom System Design
+%% ===============================
+subgraph L2["Telecom System Design"]
+direction TB
+
+T["Telephone System Design<br/><br/>
+1. Analog or VoIP system selected<br/>
+2. MDF-IDF hierarchy applied for analog system<br/>
+3. MDF-IDF trunk sized with spare capacity<br/>
+4. VoIP patch panel ports sized with spare<br/>
+5. Explosion-proof phones applied<br/>
+6. Outdoor phone IP rating checked
+"]
+
+CCTV["CCTV System Design<br/><br/>
+1. Resolution IPS traffic and storage defined<br/>
+2. Default H.264 1080p applied if unspecified<br/>
+3. IP rating and sunshade checked<br/>
+4. Explosion-proof camera applied if required
+"]
+
+P["PAGA System Design<br/><br/>
+1. Coverage requirement reviewed<br/>
+2. Full area coverage applied if unspecified<br/>
+3. A-B zoning applied where required<br/>
+4. Speaker type selected by area and noise
+"]
+
+R["Radio System Design<br/><br/>
+1. Coverage and licensing responsibility confirmed<br/>
+2. Antenna height and coverage checked<br/>
+3. Repeater applied only if signal below threshold
+"]
+
+ACS["Access Control System Design<br/><br/>
+1. Door types classified<br/>
+2. Reader application defined<br/>
+3. Controller and IO cabling defined
+"]
+
+DN["Data Network and IDS Design<br/><br/>
+1. Dual 1 Gbps redundancy applied if unspecified<br/>
+2. Core distribution and access layers defined<br/>
+3. Firewall and IDPS included where required
+"]
+
+D --> T
+D --> CCTV
+D --> P
+D --> R
+D --> ACS
+D --> DN
+end
+
+%% ===============================
+%% Swimlane: Quantity & Cable Engineering
+%% ===============================
+subgraph L3["Quantity and Cable Engineering"]
+direction TB
+
+F["Cable Rules and MTO Development<br/><br/>
+1. Cable MTO derived from block diagrams and layouts<br/>
+2. Telecom routes separated from electrical routes<br/>
+3. Default cable types applied per system<br/>
+4. Redundancy impact on quantities checked
+"]
+
+T --> F
+CCTV --> F
+P --> F
+R --> F
+ACS --> F
+DN --> F
+end
+
+%% ===============================
+%% Swimlane: Vendor & Interfaces
+%% ===============================
+subgraph L4["Vendor and Interfaces"]
+direction TB
+
+G["Vendor Scope and Interfaces<br/><br/>
+1. Vendor-supplied items identified<br/>
+2. Vendor scope included in MR and BOQ<br/>
+3. Vendor quantities verified during TBE
+"]
+
+F --> G
+end
+
+%% ===============================
+%% Swimlane: Interdiscipline
+%% ===============================
+subgraph L5["Interdiscipline Engineering"]
+direction TB
+
+H["Interdiscipline Engineering Deliverables<br/><br/>
+1. Cable tray loading and routing issued to Civil<br/>
+2. Trench and foundation data issued to Civil<br/>
+3. Heat dissipation issued to HVAC<br/>
+4. Grounding targets issued to Electrical
+"]
+
+G --> H
+end
+
+%% ===============================
+%% Swimlane: Final Review & Control
+%% ===============================
+subgraph L6["Final Review and Control"]
+direction TB
+
+I["Vendor Packages and BOQ Validation<br/><br/>
+1. Vendor issue package prepared and issued<br/>
+2. Vendor return package reviewed<br/>
+3. BOQ validated against vendor quantities<br/>
+4. Revamp and tie-in quantities separated
+"]
+
+J["Final Estimate-Design Review<br/><br/>
+1. AG and UG cable routing verified<br/>
+2. Cable derating factors confirmed<br/>
+3. ITB addenda confirmed incorporated<br/>
+4. Estimate-design frozen for bid submission
+"]
+
+H --> I --> J
+end
