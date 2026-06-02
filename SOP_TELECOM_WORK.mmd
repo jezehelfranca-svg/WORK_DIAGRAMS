@@ -1,0 +1,92 @@
+
+flowchart LR
+
+%% =========================
+%% Swimlane: ITB / Bid Review Agent
+%% =========================
+subgraph L1["ITB / Bid Review Agent"]
+direction LR
+A1["(R, A) Start ITB Review and Identify Telecom Scope"]
+A2["(R, A) Review Telecom Design Basis, Philosophy, and Specifications"]
+A3["(R, A) Confirm Applicable Codes, Standards, Local Regulations, and HCIS"]
+A4["(R, A) Verify Redundancy and Reliability Requirements
+(Hot Standby, N+1, SIL, Route Diversity)"]
+A5["(R, A) Define Scope Boundaries and Interfaces
+(Supply, Work, Tie-ins, Expansion, Existing Capacity)"]
+end
+
+%% =========================
+%% Swimlane: Telecom Design Agent
+%% =========================
+subgraph L2["Telecom Design Agent"]
+direction LR
+B1["(R, A) Develop Overall Telecom System Design"]
+B2["(R, A) Apply Default Design Criteria
+When ITB Requirements Are Not Defined"]
+B3["(R, A) Design Telecom Subsystems
+(Telephone, CCTV, PAGA, Radio, ACS, IDS, Data Network)"]
+B4["(R, A) Prepare or Update Telecom Block Diagrams"]
+end
+
+%% =========================
+%% Swimlane: Quantity & BOQ Agent
+%% =========================
+subgraph L3["Quantity & BOQ Agent"]
+direction LR
+C1["(R, A) Prepare Material Requisition Based on Approved Design"]
+C2["(R, A) Develop Equipment and Cable MTO
+Using Block Diagrams and Layout Sketches"]
+C3["(R, A) Prepare BOQ Using Standard Bid Format"]
+C4["(R, A) Separate Revamp and Tie-in Quantities
+Due to Higher Construction Cost"]
+end
+
+%% =========================
+%% Swimlane: Vendor Interface Agent
+%% =========================
+subgraph L4["Vendor Interface Agent"]
+direction LR
+D1["(R, A) Prepare and Issue Vendor Inquiry Package"]
+D2["(R, A) Receive Vendor Technical Data and BOQ"]
+D3["(R, A) Perform Technical Bid Evaluation (TBE)"]
+end
+
+%% =========================
+%% Swimlane: Interdiscipline Coordination Agent
+%% =========================
+subgraph L5["Interdiscipline Coordination Agent"]
+direction LR
+E1["(A, R) Provide Cable Tray Loading and Routing Data to Process and Civil"]
+E2["(A, R) Provide Trench, Duct, Foundation, and Manhole Data to Civil"]
+E3["(A, R) Provide Telecom Equipment Heat Dissipation Data to HVAC"]
+E4["(A, R) Provide Telecom Grounding Requirements to Electrical"]
+end
+
+%% =========================
+%% Swimlane: Review & Control Agent
+%% =========================
+subgraph L6["Review & Control Agent"]
+direction LR
+F1["(R, A) Validate BOQ Quantities
+(Main Equipment, Subsystems, and Cables)"]
+F2["(R, A) Check Quantity Reasonableness
+Against Similar Past Projects"]
+F3["(R, A) Perform Final Estimate–Design Review
+(ITB Addenda, Routing, Cable Derating)"]
+F4["(A) Freeze Estimate–Design for Bid Submission"]
+end
+
+%% =========================
+%% Flow Connections
+%% =========================
+A1 --> A2 --> A3 --> A4 --> A5
+A5 --> B1 --> B2 --> B3 --> B4
+B4 --> C1 --> C2 --> C3 --> C4
+B4 --> D1 --> D2 --> D3
+C2 --> E1
+C2 --> E2
+C2 --> E3
+C2 --> E4
+C4 --> F1
+D3 --> F1
+F1 --> F2 --> F3 --> F4
