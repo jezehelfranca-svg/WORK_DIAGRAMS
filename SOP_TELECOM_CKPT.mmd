@@ -1,0 +1,126 @@
+flowchart TB
+
+%% =========================
+%% Group 1: ITB & Basis Review
+%% =========================
+subgraph G1["ITB & Design Basis Review"]
+direction TB
+A1["Check Telecom Design Basis and Philosophy"]
+A2["Review Specifications and Block Diagrams"]
+A3["Confirm Indoor / Outdoor IP Ratings"]
+A4["Confirm Hazardous Area and Explosion-Proof Requirements"]
+A5["Confirm Applicable Codes, Standards, Local Regulations"]
+A6["Confirm Security Regulations (e.g., Saudi HCIS)"]
+end
+
+%% =========================
+%% Group 2: Scope & Interface Definition
+%% =========================
+subgraph G2["Scope, Interfaces, and Existing Systems"]
+direction TB
+B1["Define Supply and Work Scope Boundaries"]
+B2["Identify Expansion and Modification Interfaces"]
+B3["Identify Tie-in Points and Physical Connections"]
+B4["Check Intra- and Inter-System Interfaces"]
+B5["Verify Existing System Capacity and I/O Ports"]
+B6["Confirm Need for Site Survey"]
+end
+
+%% =========================
+%% Group 3: Redundancy & Reliability
+%% =========================
+subgraph G3["Redundancy and Reliability Requirements"]
+direction TB
+C1["Verify Hot Standby and Cold Standby Requirements"]
+C2["Verify Failover, Load Balancing, 1+1, and N+1"]
+C3["Verify Cable Redundancy and Route Diversity"]
+C4["Verify SIL-Level Security Requirements"]
+C5["Apply Single-System Design if No Requirement Exists"]
+end
+
+%% =========================
+%% Group 4: Default Standards (When ITB Is Silent)
+%% =========================
+subgraph G4["Default Subsystem Standards"]
+direction TB
+D1["Telephone: SIP or H.323"]
+D2["CCTV: IP-Based H.264 1080p"]
+D3["PAGA: 100V Line and Class C Amplifier"]
+D4["Radio: TETRA Release 2"]
+D5["ACS: ISO/IEC 18000-3 (13.56 MHz)"]
+D6["Firewall: NIST 800-41"]
+D7["IDPS: NIST 800-94"]
+end
+
+%% =========================
+%% Group 5: System-Specific Design Checks
+%% =========================
+subgraph G5["System-Specific Design Requirements"]
+direction TB
+E1["Telephone: MDF/IDF Hierarchy or VoIP over Data Network"]
+E2["CCTV: Resolution, I-Frame, IPS, Traffic, Storage"]
+E3["Outdoor CCTV: Sunshade, IP Rating, Explosion-Proof"]
+E4["PAGA: Coverage, A/B Zoning, Monitoring Return Cable"]
+E5["Radio: Antenna Height, Coverage, Repeaters"]
+E6["ACS: Door Classification and Reader Application"]
+E7["Data Network: Dual 1G Redundancy and 3-Level Architecture"]
+E8["IDS: Ring or Sub-Ring Topology"]
+end
+
+%% =========================
+%% Group 6: Cable & MTO Rules
+%% =========================
+subgraph G6["Cable Rules and MTO Development"]
+direction TB
+F1["Derive Cable MTO from Block Diagrams and Layouts"]
+F2["Separate Telecom Routes from Electrical and Instrument"]
+F3["Apply Default Cable Types per System"]
+F4["Check Redundancy Impact on Cable Quantities"]
+F5["Group Routes by Area and Nearest Equipment Room"]
+end
+
+%% =========================
+%% Group 7: Vendor Scope & Interfaces
+%% =========================
+subgraph G7["Vendor Scope and Interfaces"]
+direction TB
+G1A["Identify Vendor-Supplied Cables and Accessories"]
+G2A["Include Vendor Scope in MR and BOQ"]
+G3A["Verify Vendor Quantities During TBE"]
+G4A["Mark Vendor Items as 'By Vendor' in BOQ"]
+end
+
+%% =========================
+%% Group 8: Interdiscipline Deliverables
+%% =========================
+subgraph G8["Interdiscipline Engineering Deliverables"]
+direction TB
+H1["Send Cable Tray Loading and Routing to PI / Civil"]
+H2["Send Trench, Duct, Foundation, and Manhole Data to Civil"]
+H3["Send Telecom Heat Dissipation Data to HVAC"]
+H4["Send Telecom Grounding Targets to Electrical"]
+end
+
+%% =========================
+%% Group 9: Vendor Packages & BOQ Validation
+%% =========================
+subgraph G9["Vendor Packages and BOQ Validation"]
+direction TB
+I1["Prepare Vendor Issue Package (Design, Layouts, Load List)"]
+I2["Receive Vendor Return Package (BOQ, Drawings, Calculations)"]
+I3["Validate BOQ Against Vendor Quantities"]
+I4["Check Quantities Against Similar Past Projects"]
+I5["Separate Revamp and Tie-In Quantities"]
+I6["Confirm Latest Documents Were Issued to Vendors"]
+end
+
+%% =========================
+%% Group 10: Final Review
+%% =========================
+subgraph G10["Final Estimate–Design Review"]
+direction TB
+J1["Verify Aboveground and Underground Cable Routing"]
+J2["Confirm Cable Derating Factors"]
+J3["Confirm All ITB Addenda Are Reflected"]
+J4["Freeze Estimate–Design for Bid Submission"]
+end
