@@ -1,0 +1,118 @@
+{
+  "notes": [
+    {
+      "id": "root_telecom_ve",
+      "title": "Telecom Discipline – VE Checklist",
+      "tags": ["Telecom", "Value Engineering", "VE Checklist"],
+      "body": "## Scope\nTelecom discipline value engineering checklist covering fiber optic networks, CCTV systems, telecom rooms, redundancy philosophy, cable routing, cable trays, and underground ducting.\n\nContent extracted verbatim from VE checklist items.",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "id": "telecom_fo_network",
+      "title": "Fiber Optic Network Optimization",
+      "tags": ["Fiber Optic", "FO Network", "Architecture"],
+      "body": "## VE Items\n- Review and optimize fiber optic (FO) network architecture including FO cable allocation per system, reuse of existing FO infrastructure, optimization of FO patch panels and network cabinets.\n- Apply multi-core fiber optic cable sharing among multiple telecom systems. (20-EN-EL-069)\n- Adopt single FO cable combined with wireless link instead of dual redundant FO cables where acceptable. (16-EN-CI-009)\n- Review long-distance FO routing and reroute links through nearest existing substation or building. (17-EN-CI-014)",
+      "x": 20,
+      "y": 10,
+      "z": 0
+    },
+    {
+      "id": "telecom_cctv_system",
+      "title": "CCTV System Optimization",
+      "tags": ["CCTV", "IP CCTV", "Monitoring"],
+      "body": "## VE Items\n- Change CCTV feeder connection scheme from centralized to local connection using local rack rooms or field distribution panels. (26-EN-EL-001)\n- Evaluate economical cabling method for IP CCTV between camera and junction box. (25-EN-EL-009)\n- Reduce CCTV camera quantity by eliminating overlapping coverage. (19-EN-EL-020)\n- Exclude cryogenic CCTV cameras in tanks after cost and maintainability review.",
+      "x": -20,
+      "y": 10,
+      "z": 0
+    },
+    {
+      "id": "telecom_rooms_cabinets",
+      "title": "Telecom Rooms and Cabinets Layout",
+      "tags": ["Telecom Room", "Cabinet", "Building"],
+      "body": "## VE Items\n- Optimize telecom rack room and communication cabinet locations.\n- Align telecom rooms vertically in multi-story buildings.\n- Reuse existing LAN and telephone system equipment in existing control buildings. (19-EN-EL-021)",
+      "x": 0,
+      "y": 20,
+      "z": 0
+    },
+    {
+      "id": "telecom_redundancy_scope",
+      "title": "Telecom Redundancy Philosophy",
+      "tags": ["Redundancy", "System Configuration"],
+      "body": "## VE Items\n- Apply full telecom system redundancy only to major manned buildings. (20-EN-EL-032)\n- Review feasibility of integrating PA, Paging, and Siren systems.\n- Optimize paging station quantity on elevated platforms.",
+      "x": 0,
+      "y": -20,
+      "z": 0
+    },
+    {
+      "id": "telecom_cable_routing_tray",
+      "title": "Cable Routing and Cable Tray Optimization",
+      "tags": ["Cable Routing", "Cable Tray", "IEC"],
+      "body": "## VE Items\n- Optimize telecom cable routing during FEED or early design.\n- Review cable tray segregation per IEC standards. (23-EN-CI-025)\n- Increase tray support span where structurally allowable. (20-EN-CI-011)\n- Optimize tray thickness based on loading and span. (22-EN-CI-004)\n- Omit tray fireproofing where fire-resistant cables are applied. (19-EN-CI-041)",
+      "x": 30,
+      "y": -10,
+      "z": 0
+    },
+    {
+      "id": "telecom_underground_duct",
+      "title": "Underground Fiber Optic Ducting",
+      "tags": ["Underground Duct", "Fiber Optic", "Civil Works"],
+      "body": "## VE Items\n- Replace underground FO duct bank construction with Corrugated Optical Duct (COD) systems where permitted.",
+      "x": -30,
+      "y": -10,
+      "z": 0
+    },
+    {
+      "id": "shared_fo_infrastructure",
+      "title": "Shared Fiber Optic Infrastructure",
+      "tags": ["Fiber Optic", "Shared Infrastructure"],
+      "body": "## Shared Infrastructure\n- Existing fiber optic cables\n- Multi-core fiber optic cables\n- FO patch panels\n- Network cabinets",
+      "x": 15,
+      "y": 0,
+      "z": 0
+    },
+    {
+      "id": "shared_cable_tray",
+      "title": "Shared Cable Tray Infrastructure",
+      "tags": ["Cable Tray", "Structural Support"],
+      "body": "## Shared Infrastructure\n- Cable trays\n- Tray supports\n- Tray fireproofing philosophy\n- Segregation rules per IEC",
+      "x": 10,
+      "y": -10,
+      "z": 0
+    },
+    {
+      "id": "shared_existing_buildings",
+      "title": "Existing Building Infrastructure",
+      "tags": ["Existing Buildings", "LAN", "Telephone"],
+      "body": "## Shared Infrastructure\n- Existing control buildings\n- Existing LAN systems\n- Existing telephone systems",
+      "x": -10,
+      "y": 15,
+      "z": 0
+    }
+  ],
+  "links": [
+    { "from": "root_telecom_ve", "to": "telecom_fo_network" },
+    { "from": "root_telecom_ve", "to": "telecom_cctv_system" },
+    { "from": "root_telecom_ve", "to": "telecom_rooms_cabinets" },
+    { "from": "root_telecom_ve", "to": "telecom_redundancy_scope" },
+    { "from": "root_telecom_ve", "to": "telecom_cable_routing_tray" },
+    { "from": "root_telecom_ve", "to": "telecom_underground_duct" },
+
+    { "from": "telecom_fo_network", "to": "shared_fo_infrastructure" },
+    { "from": "telecom_cctv_system", "to": "shared_fo_infrastructure" },
+    { "from": "telecom_rooms_cabinets", "to": "shared_fo_infrastructure" },
+
+    { "from": "telecom_cable_routing_tray", "to": "shared_cable_tray" },
+    { "from": "telecom_fo_network", "to": "shared_cable_tray" },
+    { "from": "telecom_cctv_system", "to": "shared_cable_tray" },
+
+    { "from": "telecom_rooms_cabinets", "to": "shared_existing_buildings" },
+    { "from": "telecom_fo_network", "to": "shared_existing_buildings" }
+  ],
+  "settings": {
+    "endpoint": "",
+    "key": "",
+    "model": ""
+  }
+}
