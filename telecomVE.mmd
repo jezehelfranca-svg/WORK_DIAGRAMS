@@ -1,0 +1,32 @@
+flowchart LR
+    %% Root
+    R["Telecom Discipline<br/>VE Checklist"]
+    FO["Fiber Optic Network<br/>Optimization"]
+    CCTV["CCTV System<br/>Optimization"]
+    ROOMS["Telecom Rooms &<br/>Cabinets Layout"]
+    RED["Telecom Redundancy<br/>Philosophy"]
+    TRAY["Cable Routing &<br/>Cable Tray Optimization"]
+    DUCT["Underground Fiber<br/>Optic Ducting"]
+    SFO["Shared Fiber Optic<br/>Infrastructure"]
+    STRAY["Shared Cable Tray<br/>Infrastructure"]
+    SBLDG["Existing Building<br/>Infrastructure"]
+    R --> FO
+    R --> CCTV
+    R --> ROOMS
+    R --> RED
+    R --> TRAY
+    R --> DUCT
+
+    %% Shared FO Infrastructure links
+    FO --> SFO
+    CCTV --> SFO
+    ROOMS --> SFO
+
+    %% Shared Cable Tray links
+    TRAY --> STRAY
+    FO --> STRAY
+    CCTV --> STRAY
+
+    %% Existing Building reuse links
+    ROOMS --> SBLDG
+    FO --> SBLDG
