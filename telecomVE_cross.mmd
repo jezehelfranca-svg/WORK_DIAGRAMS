@@ -1,0 +1,69 @@
+flowchart TD
+  %% =========================================================
+  %% SYSTEM-LEVEL VE PHILOSOPHY
+  %% =========================================================
+  SYS["Integrated Telecom–Electrical–IC VE\nSingle system architecture, total installed cost focus"]
+  %% TELECOM AGENT
+  %% =========================================================
+  subgraph T[Telecom Optimization Agent]
+    T1["Optimize FO architecture\nReuse infra, reduce cabinets"]
+    T2["Share multi-core FO\nCross-system utilization"]
+    T3["Hybrid FO + Wireless\nRisk-based redundancy"]
+    T4["Shorten FO routing\nUse nearest buildings"]
+    T5["Localize CCTV architecture\nLocal racks & field panels"]
+    T6["Reduce CCTV quantity\nOverlap elimination"]
+  end
+
+  %% =========================================================
+  %% ELECTRICAL AGENT
+  %% =========================================================
+  subgraph E[Electrical Optimization Agent]
+    E1["Integrate power & signal cabling\nComposite / common routing"]
+    E2["Optimize LV power feeds\nShared sources where feasible"]
+    E3["Reduce power distribution hardware\nLocalized supply"]
+    E4["Limit electrical redundancy\nCritical buildings only"]
+  end
+
+  %% =========================================================
+  %% IC AGENT
+  %% =========================================================
+  subgraph I[IC / Control Systems Agent]
+    I1["Consolidate field interfaces\nShared JB & panels"]
+    I2["Optimize signal types\nDigital / network-based"]
+    I3["Reduce instrument count\nFunctional overlap review"]
+    I4["Reuse existing IC assets\nPanels, IO, networks"]
+  end
+
+  %% =========================================================
+  %% COMMON ROUTING & STRUCTURE
+  %% =========================================================
+  subgraph C[Common Routing & Structure Agent]
+    C1["Early integrated routing\nReduce cable & tray"]
+    C2["IEC-based tray segregation\nNo over-separation"]
+    C3["Maximize tray support span\nReduce steel"]
+    C4["Optimize tray thickness\nActual load based"]
+    C5["Performance-based fire protection\nFire-resistant cables"]
+  end
+
+  %% =========================================================
+  %% CIVIL INTERFACE
+  %% =========================================================
+  subgraph V[Civil Interface Agent]
+    V1["Minimize trenching\nReuse corridors"]
+    V2["Replace duct banks with COD\nReduced civil scope"]
+  end
+
+  %% =========================================================
+  %% FLOW LOGIC
+  %% =========================================================
+  SYS --> T
+  SYS --> E
+  SYS --> I
+
+  T6 --> E1
+  T6 --> I1
+
+  E4 --> C1
+  I4 --> C1
+
+  C5 --> V1 --> V2
