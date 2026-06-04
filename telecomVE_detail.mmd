@@ -1,0 +1,43 @@
+flowchart TD
+  subgraph Agent1[FO Network Optimization Agent]
+    A1["Minimize FO quantity & routing\nCore reallocation, reuse infra"]
+    A2["Share multi-core FO\nAcross telecom systems"]
+    A3["Hybrid FO + Wireless\nRisk-based redundancy"]
+    A4["Shorten long-distance routes\nUse nearest buildings"]
+  end
+
+  subgraph Agent2[CCTV & Field Systems Agent]
+    B1["Localize CCTV feeders\nLocal racks & field panels"]
+    B2["Optimize IP CCTV cabling\nComposite vs UTP + power"]
+    B3["Reduce camera count\nEliminate overlap"]
+    B4["Omit cryogenic CCTV\nAlternative leak detection"]
+  end
+
+  subgraph Agent3[Rooms, Cabinets & Redundancy Agent]
+    C1["Optimize rack room locations\nBalance indoor/outdoor cabling"]
+    C2["Vertical room alignment\nSimplify risers"]
+    C3["Reuse existing LAN & telephony\nMinimize new hardware"]
+    C4["Limit full redundancy\nMajor manned buildings only"]
+    C5["Integrate PA / Paging / Siren\nSystem consolidation"]
+    C6["Optimize paging stations\n3D model & spec review"]
+  end
+
+  subgraph Agent4[Routing, Tray & Structural Agent]
+    D1["Early routing optimization\nReduce cable & tray length"]
+    D2["Right-size tray segregation\nIEC & EMC based"]
+    D3["Maximize tray support span\nReduce steel"]
+    D4["Optimize tray thickness\nActual load based"]
+    D5["Omit tray fireproofing\nFire-resistant cables"]
+  end
+
+  subgraph Agent5[Civil Works Optimization Agent]
+    E1["Replace duct banks with COD\nReduce civil scope & cost"]
+  end
+
+  A1 --> A2 --> A3 --> A4
+  A4 --> B1
+  B1 --> B2 --> B3 --> B4
+  B4 --> C1 --> C2 --> C3 --> C4
+  C4 --> C5 --> C6
+  C6 --> D1 --> D2 --> D3 --> D4 --> D5
+  D5 --> E1
